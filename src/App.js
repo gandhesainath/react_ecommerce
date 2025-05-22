@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// import "./styles.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Header-Footer/Navbar";
+import Register from "./Components/Auth/Register";
+import Login from "./Components/Auth/Login";
+import Logout from "./Components/Auth/Logout";
+import Cart from "./Components/Cart/Cart";
+import Orders from "./Components/Orders/Orders";
+import Cards from "./Components/Products/Cards";
+import Footer from "./Components/Header-Footer/Footer";
+import GoogleAuth from "./Components/Auth/GAuth";
 
 function App() {
+  const PATH = process.env.REACT_APP_PATH;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path={`${PATH}`} element={<Cards />} />
+          <Route path={`${PATH}/login`} element={<Login />} />
+          <Route path={`${PATH}/register`} element={<Register />} />
+          <Route path={`${PATH}/logout`} element={<Logout />} />
+          <Route path={`${PATH}/cart`} element={<Cart />} />
+          <Route path={`${PATH}/orders`} element={<Orders />} />
+          <Route path={`${PATH}/gauth`} element={<GoogleAuth />} />
+        </Routes>
+      </Router>
+      <hr className="m-0" />
+      <Footer />
     </div>
   );
 }
