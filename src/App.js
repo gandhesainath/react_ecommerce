@@ -1,4 +1,4 @@
-// import "./styles.css";
+import "./styles.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Header-Footer/Navbar";
 import Register from "./Components/Auth/Register";
